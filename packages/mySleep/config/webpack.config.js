@@ -13,6 +13,13 @@ const externals = Object.keys(remoteComponentConfig).reduce(
   {}
 );
 
+/*
+- add a fallback 'resolve.fallback: { "https": require.resolve("https-browserify") }'
+- install 'https-browserify'
+If you don't want to include a polyfill, you can use an empty module like this:
+resolve.fallback: { "https": false }
+*/
+
 module.exports = {
   entry: {
     main: path.resolve(__dirname, paths.src + "/index.js"),
@@ -37,6 +44,11 @@ module.exports = {
   externals: {
     ...externals,
   },
+  /*resolve: {
+    fallback: {
+      https: require.resolve("https-browserify"),
+    },
+  },*/
   module: {
     rules: [
       {

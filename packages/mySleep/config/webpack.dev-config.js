@@ -41,6 +41,12 @@ module.exports = {
         "X-Requested-With, content-type, Authorization",
     },
   },
+  resolve: {
+    fallback: {
+      https: require.resolve("https-browserify"),
+      http: require.resolve("stream-http"),
+    },
+  },
   module: {
     rules: [
       {

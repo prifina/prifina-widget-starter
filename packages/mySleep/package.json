@@ -1,9 +1,8 @@
 {
-  "name": "starter-widget",
-  "version": "1.0.0",
-  "description": "Starter widget example, followed up with documentation to help start building widgets for Prifina. ",
-  "author": "hamza <hamzahalilovic.12@gmail.com>",
-  "homepage": "https://github.com/prifina/prifina-widget-starter#readme",
+  "name": "@prifina-widgets/mySleep",
+  "version": "0.0.0",
+  "description": "Prifina Sleep Widget",
+  "author": "Tero <tero@prifina.com>",
   "license": "MIT",
   "main": "dist/esm/index.js",
   "publishConfig": {
@@ -12,9 +11,9 @@
   "files": [
     "dist"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/prifina/prifina-widget-starter"
+  "dependencies": {
+    "@prifina/fitbit": "^0.0.8",
+    "recharts": "^2.0.8"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.13",
@@ -24,8 +23,7 @@
     "@babel/preset-env": "^7.12.13",
     "@babel/preset-react": "^7.12.13",
     "@babel/runtime": "^7.12.13",
-    "@prifina/faker": "latest",
-    "@prifina/hooks": "latest",
+    "@prifina/hooks": "0.0.62",
     "@storybook/addon-actions": "^6.1.17",
     "@storybook/addon-docs": "^6.1.17",
     "@storybook/addon-knobs": "^6.1.17",
@@ -41,9 +39,12 @@
     "core-js": "3",
     "cross-env": "^7.0.3",
     "html-webpack-plugin": "^5.0.0",
+    "https-browserify": "^1.0.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "short-uuid": "^4.1.0",
+    "stream-http": "^3.1.1",
     "styled-components": "^5.2.1",
     "styled-system": "^5.1.5",
     "terser-webpack-plugin": "^5.1.1",
@@ -54,16 +55,16 @@
     "webpack-cli": "^4.5.0",
     "webpack-dev-server": "^3.11.2"
   },
+  "scripts": {
+    "build": "cross-env NODE_ENV=production webpack --mode production --config config/webpack.config.js",
+    "build:dev": "cross-env NODE_ENV=development webpack --mode development --config config/webpack.dev-config.js",
+    "start": "yarn build:dev && cross-env NODE_ENV=development webpack serve --config ./config/webpack.dev-config.js",
+    "storybook": "start-storybook -p 9009 -s public"
+  },
   "peerDependencies": {
+    "@prifina/hooks": "0.0.62",
     "react": "^17.0.1",
     "styled-components": "^5.2.1",
     "styled-system": "^5.1.5"
-  },
-  "scripts": {
-    "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public"
-  },
-  "bugs": {
-    "url": "https://github.com/prifina/prifina-widget-starter/issues"
   }
 }

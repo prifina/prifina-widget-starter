@@ -1,0 +1,32 @@
+{
+  "id": "866fscSq5Ae7bPgUtb6ffB",
+  "version": "0.0.1",
+  "name": "dataTest",
+  "title": "DataTest",
+  "publisher": "Prifina Inc",
+  "icon": "assets/weatherly-icon.png",
+  "bannerImage": "assets/weatherly-banner.png", 
+  "dataConnectors": ["GoogleTimeline/queryActivities"],
+  "settings": [
+    { "field": "year", "value": "2020", "label": "Year", "type": "text" },
+    { "field": "month", "value": "1", "label": "Month", "type": "text" },
+    {"field":"sizes","value":"[{\"option\":\"300x300\",\"value\":\"300x300\"}]","label":"Sizes","type":"select"},
+      {"field":"theme","value": "[{\"option\":\"Light\",\"value\":\"light\"}]","label":"Theme","type":"select"}
+  ],
+  "shortDescription": "Heads up widget for showing you the weather in relevant locations to you.",
+  "longDescription": "This simple widget gives you insight into the weather in different locations you choose. You can access it in your account from wherever you access the internet.",
+  "dataTypes": "User-held data",
+  "category": "Weather",
+  "deviceSupport": "Desktop browser",
+  "languages": "en",
+  "age": "3+",
+  "screenshots": [
+    "assets/weatherly-ss-1.png",
+    "assets/weatherly-ss-2.png",
+    "assets/weatherly-ss-3.png"
+  ],
+  "keyFeatures": ["Public data display"],
+  "userHeld": ["Session time", "Session duration"],
+  "userGenerated": ["Location input"],
+  "public": ["Weather data"]
+}
