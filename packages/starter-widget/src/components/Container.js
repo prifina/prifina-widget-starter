@@ -28,15 +28,3 @@ export const Container = styled("div")(
     },
   })
 );
-
-export const ContainerOne = styled.div`
-  height: 300px;
-  font-size: 14px;
-  width: 300px;
-  padding: 5px;
-  /*
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  */
-`;
