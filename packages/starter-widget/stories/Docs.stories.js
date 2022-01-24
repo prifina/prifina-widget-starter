@@ -11,7 +11,22 @@ const presentationStyle = {
   margin: 10,
 };
 
-export const box = () => <div>Overview...</div>;
+export const box = () => (
+  <div
+    style={{
+      display: "flex",
+      alignItems: "center",
+      flexDirection: "column",
+    }}
+  >
+    <div style={{ fontSize: 45, marginBottom: 40 }}>
+      Widget development process
+    </div>
+    <a href="https://www.notion.so/prifina/Widget-Development-19e49ad734d4428b9ffb9f0eaab8dcbb">
+      Go to original documentation
+    </a>
+  </div>
+);
 box.story = {
   name: "Overview",
 };
