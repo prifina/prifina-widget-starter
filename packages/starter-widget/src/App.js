@@ -1,20 +1,12 @@
-import React, { useRef, useEffect, useState } from "react";
-import styled from "styled-components";
-import { usePrifina, Op } from "@prifina/hooks";
+import React from "react";
+import { PrifinaProvider, PrifinaContext } from "@prifina/hooks";
+import MyWidget from "./MyWidget";
 
-const processData = (data) => {};
-
-// unique appID for the app....
-const appID = "1u3f465t4cNSWYiyKFVwBG";
-
-const App = () => {
-  // init hook and get provider api services...
-
+// this is only for local webpack server test  => yarn start
+export const LocalComponent = (props) => {
   return (
-    <div>
-      <div>main</div>
-    </div>
+    <PrifinaProvider stage={"dev"} Context={PrifinaContext}>
+      <MyWidget stage={"dev"} {...props} />
+    </PrifinaProvider>
   );
 };
-
-export default App;
