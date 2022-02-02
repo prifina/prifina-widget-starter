@@ -1,10 +1,10 @@
 import React from "react";
-import App from "../src/App";
+import MyWidget from "../src/MyWidget";
 
-export default { title: "App" };
+export default { title: "MyWidget" };
 
-export const app = () => <App />;
+export const app = () => <MyWidget />;
 
 app.story = {
-  name: "App",
+  name: "MyWidget",
 };
