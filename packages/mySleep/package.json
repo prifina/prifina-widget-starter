@@ -56,8 +56,10 @@
     "webpack-dev-server": "^3.11.2"
   },
   "scripts": {
-    "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build": "cross-env NODE_ENV=production webpack --mode production --config config/webpack.config.js",
+    "build:dev": "cross-env NODE_ENV=development webpack --mode development --config config/webpack.dev-config.js",
+    "start": "yarn build:dev && cross-env NODE_ENV=development webpack serve --config ./config/webpack.dev-config.js",
+    "storybook": "start-storybook -p 9009 -s public"
   },
   "peerDependencies": {
     "@prifina/hooks": "0.0.62",

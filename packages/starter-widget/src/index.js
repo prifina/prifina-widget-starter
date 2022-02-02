@@ -1,6 +1,6 @@
 /**
  * Entrypoint of the Remote Component.
  */
-import App from "./App";
+import MyWidget from "./MyWidget";
 
-export default App;
+export default MyWidget;

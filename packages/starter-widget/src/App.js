@@ -1,6 +1,6 @@
 import React from "react";
 import { PrifinaProvider, PrifinaContext } from "@prifina/hooks";
-import { MyWidget } from "./MyWidget";
+import MyWidget from "./MyWidget";
 
 // this is only for local webpack server test  => yarn start
 export const LocalComponent = (props) => {

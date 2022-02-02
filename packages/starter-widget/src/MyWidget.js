@@ -12,7 +12,7 @@ const MyWidget = () => {
 
   return (
     <Container variant="small" style={{ border: "1px solid blue" }}>
-      <div>Stage 1 </div>
+      <div>Stage 2</div>
     </Container>
   );
 };

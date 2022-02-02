@@ -3090,7 +3090,7 @@
   dependencies:
     "@paciolan/remote-component" "^2.11.0"
 
-"@prifina/hooks@^0.0.8", "@prifina/hooks@latest":
+"@prifina/hooks@^0.0.8":
   version "0.0.8"
   resolved "https://registry.yarnpkg.com/@prifina/hooks/-/hooks-0.0.8.tgz#b80374e7248adb4e1494558064863e91d76f34a9"
   integrity sha512-lyI+voMVMfQnEblAUPph31l0/oyU3O0Tr0QLFXw7D8z0IRoozQt2BhlTHv2PLsjP651be1jpwjOpN1y5vx2Cqg==
