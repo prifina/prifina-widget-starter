@@ -1,22 +1,12 @@
 import React from "react";
-import styled from "styled-components";
+import { PrifinaProvider, PrifinaContext } from "@prifina/hooks";
+import MyWidget from "./MyWidget";
 
-import { Container } from "./components/Container";
-
-// unique appID for the app....
-const appID = "1u3f465t4cNSWYiyKFVwBG";
-
-const App = () => {
+// this is only for local webpack server test  => yarn start
+export const LocalComponent = (props) => {
   return (
-    <Container
-      variant="small"
-      style={{
-        border: "1px solid blue",
-      }}
-    >
-      Your widget
-    </Container>
+    <PrifinaProvider stage={"dev"} Context={PrifinaContext}>
+      <MyWidget stage={"dev"} {...props} />
+    </PrifinaProvider>
   );
 };
-
-export default App;
