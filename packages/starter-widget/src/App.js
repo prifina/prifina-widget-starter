@@ -7,7 +7,16 @@ import { Container } from "./components/Container";
 const appID = "1u3f465t4cNSWYiyKFVwBG";
 
 const App = () => {
-  return <Container variant="small">...your widget content</Container>;
+  return (
+    <Container
+      variant="small"
+      style={{
+        border: "1px solid blue",
+      }}
+    >
+      Your widget
+    </Container>
+  );
 };
 
 export default App;
