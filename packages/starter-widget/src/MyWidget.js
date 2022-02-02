@@ -10,7 +10,7 @@ const MyWidget = () => {
 
   return (
     <div>
-      <div>main</div>
+      <div>main branch</div>
     </div>
   );
 };
