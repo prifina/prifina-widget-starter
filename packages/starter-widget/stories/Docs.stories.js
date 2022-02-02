@@ -22,9 +22,7 @@ export const box = () => (
     <div style={{ fontSize: 45, marginBottom: 40 }}>
       Widget development process
     </div>
-    <a href="https://www.notion.so/prifina/Widget-Development-19e49ad734d4428b9ffb9f0eaab8dcbb">
-      Go to original documentation
-    </a>
+    <a href="https://docs.prifina.com">Go to Prifina Developer Docs</a>
   </div>
 );
 box.story = {
