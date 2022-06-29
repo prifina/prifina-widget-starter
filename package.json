@@ -24,8 +24,5 @@
     "styled-system": "^5.1.5",
     "terser": "^5.5.1",
     "webpack": "^4.43.0"
-  },
-  "resolutions": {
-    "graphql": "^15.0.0"
   }
 }
