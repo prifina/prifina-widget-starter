@@ -3,7 +3,7 @@ import App from "../src/App";
 
 export default { title: "Test" };
 
-export const app = () => <App city="hong kong" />;
+export const app = () => <App />;
 app.story = {
   name: "App",
 };

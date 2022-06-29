@@ -1,7 +1,7 @@
 'use strict';
 
-const weather = require('..');
+const avatarWidget = require('..');
 
-describe('weather', () => {
+describe('avatar-widget', () => {
     it('needs tests');
 });

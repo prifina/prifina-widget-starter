@@ -141,7 +141,7 @@ const AvatarWidget = (props) => {
           fontWeight: 800,
         }}
       >
-        {ouraScore}
+        {score}
       </div>
     </Container>
   );
