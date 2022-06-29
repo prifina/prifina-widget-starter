@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
+
 import { usePrifina, Op } from "@prifina/hooks";
 
 import Oura from "@prifina/oura";
@@ -11,6 +10,10 @@ import ReactThreeVisor from "./components/ReactThreeVisor";
 const appID = "ujWBeKugg514AVaE4UyaDq";
 
 const AvatarWidget = (props) => {
+  const stage = props.stage || "dev";
+
+  const { onUpdate, API, registerHooks } = usePrifina();
+
   const [ouraScore, setOuraScore] = useState("");
 
   const processData = (data) => {
@@ -20,60 +23,58 @@ const AvatarWidget = (props) => {
 
   const dataUpdate = async (payload) => {
     console.log("UPDATE ", payload);
-    if (
-      payload.hasOwnProperty("data") &&
-      payload.data.hasOwnProperty("content")
-    ) {
-      // process async data
-      if (
-        payload.data.dataconnector === "Oura/queryActivitySummariesAsync" &&
-        payload.data.content.length > 1
-      ) {
-        processData(payload.data.content);
-      }
-    }
+    // if (
+    //   payload.hasOwnProperty("data") &&
+    //   payload.data.hasOwnProperty("content")
+    // ) {
+    //   // process async data
+    //   if (
+    //     payload.data.dataconnector === "Oura/queryReadinessSummary" &&
+    //     payload.data.content.length > 1
+    //   ) {
+    //     processData(payload.data.content);
+    //   }
+    // }
   };
-
-  // @ts-ignore
-  const { onUpdate } = usePrifina();
 
   useEffect(async () => {
     // init callback function for background updates/notifications
-    // onUpdate(appID, dataUpdate);
+    onUpdate(appID, dataUpdate);
     // register datasource modules
-    // registerHooks(appID, [Oura]);
+    registerHooks(appID, [Oura]);
 
     const d = new Date();
-    const dd = d.setDate(d.getDate() - 14);
+    const dd = d.setDate(d.getDate() - 1);
+
     const dateStr = new Date(dd).toISOString().split("T")[0];
 
     const filter = {
       ["s3::date"]: {
-        [Op.gte]: dateStr,
+        [Op.eq]: dateStr,
       },
     };
 
-    // const activityResult = await API[appID].Oura.querySleepSummariesAsync({
-    //   filter: filter,
-    //   fields: "score",
-    // });
-    // console.log(activityResult);
-    // if (stage === "dev") {
-    //   processData(activityResult.data.getDataObject.content[1]);
-    // }
+    const activityResult = await API[appID].Oura.queryReadinessSummary({
+      filter: filter,
+      fields: "score",
+    });
+    console.log("hehe", activityResult);
+
+    if (stage === "dev") {
+      processData(activityResult.data.getDataObject.content.score);
+    }
   }, []);
 
   const superCharged =
-    "https://mytestingbucket12421512.s3.us-east-2.amazonaws.com/SurperCharged.fbx";
-
+    "https://prifina-data-352681697435-eu-west-1.s3.eu-west-1.amazonaws.com/public/ujWBeKugg514AVaE4UyaDq/native-assets/SurperCharged.fbx";
   const alertState =
-    "http://prifina-data-352681697435-eu-west-1.s3.eu-west-1.amazonaws.com/public/9brToavkqopa3PzLcF2yBT/native-assets/AlertState.fbx";
+    "https://prifina-data-352681697435-eu-west-1.s3.eu-west-1.amazonaws.com/public/ujWBeKugg514AVaE4UyaDq/native-assets/AlertState.fbx";
   const wellRecovered =
-    "https://mytestingbucket12421512.s3.us-east-2.amazonaws.com/WellRecovered.fbx";
+    "https://prifina-data-352681697435-eu-west-1.s3.eu-west-1.amazonaws.com/public/ujWBeKugg514AVaE4UyaDq/native-assets/WellRecovered.fbx";
   const idle =
-    "https://mytestingbucket12421512.s3.us-east-2.amazonaws.com/Idle.fbx";
+    "https://prifina-data-352681697435-eu-west-1.s3.eu-west-1.amazonaws.com/public/ujWBeKugg514AVaE4UyaDq/native-assets/Idle.fbx";
   const payAttention =
-    "https://mytestingbucket12421512.s3.us-east-2.amazonaws.com/PayAttention.fbx";
+    "https://prifina-data-352681697435-eu-west-1.s3.eu-west-1.amazonaws.com/public/ujWBeKugg514AVaE4UyaDq/native-assets/PayAttention.fbx";
 
   let status = idle;
 
@@ -82,24 +83,24 @@ const AvatarWidget = (props) => {
   // ŌURA: 69 - 65: Pay attention, you’re not fully recovered >>> BODYGEE: PAY ATTENTION avatar
   // ŌURA: <65: Alert state: this is an new stage we introduced >>> BODYGEE: ALERT STATE avatar
 
-  let score = 68;
+  let score = ouraScore;
 
   let color = "yellow";
 
-  switch (score) {
-    case 64:
+  switch (true) {
+    case score <= 64:
       status = alertState;
       color = "firebrick";
       break;
-    case 68:
+    case score >= 65 && score <= 69:
       status = payAttention;
       color = "khaki";
       break;
-    case 82:
+    case score >= 70 && score <= 84:
       status = wellRecovered;
       color = "mediumseagreen";
       break;
-    case 90:
+    case score >= 85:
       status = superCharged;
       color = "powderblue";
       break;
@@ -113,7 +114,6 @@ const AvatarWidget = (props) => {
     y: 95,
     z: 450,
   };
-  console.log("SCORE", score);
 
   return (
     <Container
@@ -141,7 +141,7 @@ const AvatarWidget = (props) => {
           fontWeight: 800,
         }}
       >
-        62
+        {ouraScore}
       </div>
     </Container>
   );
