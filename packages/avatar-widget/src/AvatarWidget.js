@@ -90,24 +90,24 @@ const AvatarWidget = (props) => {
   // ŌURA: 69 - 65: Pay attention, you’re not fully recovered >>> BODYGEE: PAY ATTENTION avatar
   // ŌURA: <65: Alert state: this is an new stage we introduced >>> BODYGEE: ALERT STATE avatar
 
-  let score = ouraScore;
+  // let score = ouraScore;
 
   let color = "yellow";
 
   switch (true) {
-    case score <= 64:
+    case ouraScore <= 64:
       status = alertState;
       color = "firebrick";
       break;
-    case score >= 65 && score <= 69:
+    case ouraScore >= 65 && ouraScore <= 69:
       status = payAttention;
       color = "khaki";
       break;
-    case score >= 70 && score <= 84:
+    case ouraScore >= 70 && ouraScore <= 84:
       status = wellRecovered;
       color = "mediumseagreen";
       break;
-    case score >= 85:
+    case ouraScore >= 85:
       status = superCharged;
       color = "powderblue";
       break;
@@ -148,7 +148,7 @@ const AvatarWidget = (props) => {
           fontWeight: 800,
         }}
       >
-        {score}
+        {ouraScore}
       </div>
     </Container>
   );
