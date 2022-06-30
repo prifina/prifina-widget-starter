@@ -32,7 +32,7 @@ const AvatarWidget = (props) => {
         payload.data.dataconnector === "Oura/querySleepSummariesAsync" &&
         payload.data.content.length > 1
       ) {
-        processData(payload.data.content);
+        processData(payload.data.content[1]);
       }
     }
   };
