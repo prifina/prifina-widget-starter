@@ -18,7 +18,7 @@ const AvatarWidget = (props) => {
 
   const processData = (data) => {
     console.log("OURA SCORE PROCESS DATA", data);
-    setOuraScore(data);
+    setOuraScore(data[1]);
   };
 
   const dataUpdate = async (payload) => {
@@ -32,7 +32,7 @@ const AvatarWidget = (props) => {
         payload.data.dataconnector === "Oura/querySleepSummariesAsync" &&
         payload.data.content.length > 1
       ) {
-        processData(payload.data.content[1]);
+        processData(payload.data.content);
       }
     }
   };
