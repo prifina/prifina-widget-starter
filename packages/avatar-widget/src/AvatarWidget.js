@@ -10,7 +10,7 @@ import ReactThreeVisor from "./components/ReactThreeVisor";
 const appID = "ujWBeKugg514AVaE4UyaDq";
 
 const AvatarWidget = (props) => {
-  const stage = "dev";
+  const stage = props.stage || "dev";
 
   const { onUpdate, API, registerHooks } = usePrifina();
 
@@ -18,7 +18,12 @@ const AvatarWidget = (props) => {
 
   const processData = (data) => {
     console.log("OURA SCORE PROCESS DATA", data);
-    setOuraScore(data[1]);
+
+    let newData = data
+    console.log("OURA SCORE PROCESSED NEW DATA", newData);
+
+
+    setOuraScore(newData[1]);
   };
 
   const dataUpdate = async (payload) => {
