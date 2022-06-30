@@ -19,9 +19,10 @@ const AvatarWidget = (props) => {
   const processData = (data) => {
     console.log("OURA SCORE PROCESS DATA", data);
 
-    let newData = data
+    let newData = data;
     console.log("OURA SCORE PROCESSED NEW DATA", newData);
 
+    ("newest");
 
     setOuraScore(newData[1]);
   };
