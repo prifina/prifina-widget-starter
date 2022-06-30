@@ -63,7 +63,7 @@ const AvatarWidget = (props) => {
     // processData(activityResult.data.getDataObject.content.score);
 
     if (stage === "dev") {
-      processData(activityResult.data.getDataObject.content[1].score);
+      processData(activityResult.data.getDataObject.content[1].score[1]);
     }
   }, []);
 
