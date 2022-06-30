@@ -60,9 +60,11 @@ const AvatarWidget = (props) => {
     });
     console.log("hehe", activityResult);
 
-    if (stage === "dev") {
-      processData(activityResult.data.getDataObject.content.score);
-    }
+    processData(activityResult.data.getDataObject.content.score);
+
+    // if (stage === "dev") {
+    //   processData(activityResult.data.getDataObject.content.score);
+    // }
   }, []);
 
   const superCharged =
