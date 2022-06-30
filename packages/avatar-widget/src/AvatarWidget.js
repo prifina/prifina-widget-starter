@@ -23,18 +23,18 @@ const AvatarWidget = (props) => {
 
   const dataUpdate = async (payload) => {
     console.log("UPDATE ", payload);
-    // if (
-    //   payload.hasOwnProperty("data") &&
-    //   payload.data.hasOwnProperty("content")
-    // ) {
-    //   // process async data
-    //   if (
-    //     payload.data.dataconnector === "Oura/queryReadinessSummary" &&
-    //     payload.data.content.length > 1
-    //   ) {
-    //     processData(payload.data.content);
-    //   }
-    // }
+    if (
+      payload.hasOwnProperty("data") &&
+      payload.data.hasOwnProperty("content")
+    ) {
+      // process async data
+      if (
+        payload.data.dataconnector === "Oura/querySleepSummariesAsync" &&
+        payload.data.content.length > 1
+      ) {
+        processData(payload.data.content);
+      }
+    }
   };
 
   useEffect(async () => {
@@ -54,17 +54,17 @@ const AvatarWidget = (props) => {
       },
     };
 
-    const activityResult = await API[appID].Oura.queryReadinessSummary({
+    const activityResult = await API[appID].Oura.querySleepSummariesAsync({
       filter: filter,
       fields: "score",
     });
-    console.log("hehe", activityResult);
+    console.log("activityResult", activityResult);
+    
+    // processData(activityResult.data.getDataObject.content.score);
 
-    processData(activityResult.data.getDataObject.content.score);
-
-    // if (stage === "dev") {
-    //   processData(activityResult.data.getDataObject.content.score);
-    // }
+    if (stage === "dev") {
+      processData(activityResult.data.getDataObject.content.score);
+    }
   }, []);
 
   const superCharged =
