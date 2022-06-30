@@ -10,7 +10,7 @@ import ReactThreeVisor from "./components/ReactThreeVisor";
 const appID = "ujWBeKugg514AVaE4UyaDq";
 
 const AvatarWidget = (props) => {
-  const stage = props.stage || "dev";
+  const stage = "dev";
 
   const { onUpdate, API, registerHooks } = usePrifina();
 
@@ -44,13 +44,13 @@ const AvatarWidget = (props) => {
     registerHooks(appID, [Oura]);
 
     const d = new Date();
-    const dd = d.setDate(d.getDate() - 1);
+    const dd = d.setDate(d.getDate() - 5);
 
     const dateStr = new Date(dd).toISOString().split("T")[0];
 
     const filter = {
       ["s3::date"]: {
-        [Op.eq]: dateStr,
+        [Op.gte]: dateStr,
       },
     };
 
@@ -59,11 +59,11 @@ const AvatarWidget = (props) => {
       fields: "score",
     });
     console.log("activityResult", activityResult);
-    
+
     // processData(activityResult.data.getDataObject.content.score);
 
     if (stage === "dev") {
-      processData(activityResult.data.getDataObject.content.score);
+      processData(activityResult.data.getDataObject.content[1].score);
     }
   }, []);
 
