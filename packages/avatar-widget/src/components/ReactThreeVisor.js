@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import * as THREE from "three";
+import { backgroundColor } from "styled-system";
 // let OrbitControls = require("three-orbit-controls")(THREE);
 let FBXLoader = require("three-fbxloader-offical");
 
@@ -154,11 +155,12 @@ export default class ReactThreeVisor extends Component {
   }
 
   render() {
+    console.log("react visor color", this.props.backgroundColor);
     return (
       <div
         style={{
-          width:290,
-          height:290,
+          width: 290,
+          height: 290,
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
