@@ -142,7 +142,7 @@ const AvatarWidget = (props) => {
         cameraPosition={cameraPosition}
         url={status}
         backgroundColor={color}
-        shouldRerender={{}}
+        shouldRerender={{ ouraScore }}
       />
       <div
         style={{
