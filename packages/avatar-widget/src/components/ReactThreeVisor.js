@@ -161,9 +161,12 @@ export default class ReactThreeVisor extends Component {
   }
 
   render() {
+    const keyID = "container";
+
     console.log("react visor color", this.props.backgroundColor);
     return (
       <div
+        key={keyID}
         style={{
           width: 290,
           height: 290,

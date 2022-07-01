@@ -137,12 +137,11 @@ const AvatarWidget = (props) => {
       }}
     >
       <ReactThreeVisor
-        key="id"
         id="canvas"
         cameraPosition={cameraPosition}
         url={status}
         backgroundColor={color}
-        shouldRerender={{ ouraScore }}
+        shouldRerender={{}}
       />
       <div
         style={{
