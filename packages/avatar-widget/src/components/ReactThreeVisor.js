@@ -151,6 +151,8 @@ export default class ReactThreeVisor extends Component {
   };
 
   componentDidUpdate(prevProps) {
+    console.log("component mounted");
+
     this.checkProps();
     this.init();
     if (prevProps.shouldRerender !== this.props.shouldRerender) {
