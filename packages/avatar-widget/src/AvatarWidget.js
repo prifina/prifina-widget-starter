@@ -14,6 +14,8 @@ const AvatarWidget = (props) => {
 
   const { onUpdate, API, registerHooks } = usePrifina();
 
+  const { score } = props;
+
   const [ouraScore, setOuraScore] = useState();
 
   const processData = (data) => {
@@ -24,7 +26,9 @@ const AvatarWidget = (props) => {
 
     let data2 = ["score", "84", "66", "89", "72"];
 
-    setOuraScore(data2[1]);
+    // setOuraScore(data2[2]);
+    setOuraScore(score);
+    // setOuraScore(newData[1]);
   };
 
   const dataUpdate = async (payload) => {
@@ -141,7 +145,7 @@ const AvatarWidget = (props) => {
         cameraPosition={cameraPosition}
         url={status}
         backgroundColor={color}
-        shouldRerender={{}}
+        shouldRerender={ouraScore}
       />
       <div
         style={{

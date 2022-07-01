@@ -6,7 +6,7 @@ import AvatarWidget from "./AvatarWidget";
 export const LocalComponent = (props) => {
   return (
     <PrifinaProvider stage={"dev"} Context={PrifinaContext}>
-      <AvatarWidget stage={"dev"} {...props} />
+      <AvatarWidget stage={"dev"} score={78} {...props} />
     </PrifinaProvider>
   );
 };

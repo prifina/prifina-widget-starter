@@ -16,7 +16,7 @@ export default class ReactThreeVisor extends Component {
     near: PropTypes.number,
     onError: PropTypes.func,
     onLoading: PropTypes.func,
-    shouldRerender: PropTypes.func,
+    shouldRerender: PropTypes.string,
   };
 
   checkProps = () => {
@@ -134,7 +134,7 @@ export default class ReactThreeVisor extends Component {
     this.renderer = new THREE.WebGLRenderer({ antialias: true });
     this.renderer.setPixelRatio(window.devicePixelRatio);
     this.renderer.setSize(290, 290);
-    this.container.appendChild(this.renderer.domElement);
+    // this.container.appendChild(this.renderer.domElement);
     this.animate();
   };
 
@@ -153,20 +153,22 @@ export default class ReactThreeVisor extends Component {
   componentDidUpdate(prevProps) {
     console.log("component mounted");
 
+    console.log("prevprops", prevProps);
+
     this.checkProps();
     this.init();
-    if (prevProps.shouldRerender !== this.props.shouldRerender) {
+    if (this.props.shouldRerender == undefined) {
+      return null;
+    } else if (prevProps.shouldRerender !== this.props.shouldRerender) {
       this.container.appendChild(this.renderer.domElement);
     }
   }
 
   render() {
-    const keyID = "container";
-
+    console.log("should render state", this.props.shouldRerender);
     console.log("react visor color", this.props.backgroundColor);
     return (
       <div
-        key={keyID}
         style={{
           width: 290,
           height: 290,
