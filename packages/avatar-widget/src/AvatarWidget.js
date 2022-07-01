@@ -22,7 +22,9 @@ const AvatarWidget = (props) => {
     let newData = data;
     console.log("OURA SCORE PROCESSED NEW DATA", newData);
 
-    setOuraScore(newData[1]);
+    let data2 = ["score", "84", "66", "89", "72"];
+
+    setOuraScore(data2[1]);
   };
 
   const dataUpdate = async (payload) => {
@@ -135,6 +137,7 @@ const AvatarWidget = (props) => {
       }}
     >
       <ReactThreeVisor
+        key="id"
         id="canvas"
         cameraPosition={cameraPosition}
         url={status}
