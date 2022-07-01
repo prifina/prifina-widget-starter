@@ -118,7 +118,7 @@ export default class ReactThreeVisor extends Component {
               child.receiveShadow = true;
             }
           });
-
+          console.log("object", object);
           this.scene.add(object);
         },
         (s) => {
@@ -134,7 +134,7 @@ export default class ReactThreeVisor extends Component {
     this.renderer = new THREE.WebGLRenderer({ antialias: true });
     this.renderer.setPixelRatio(window.devicePixelRatio);
     this.renderer.setSize(290, 290);
-    // this.container.appendChild(this.renderer.domElement);
+    // this.container.replaceChildren(this.renderer.domElement);
     this.animate();
   };
 
@@ -157,10 +157,9 @@ export default class ReactThreeVisor extends Component {
 
     this.checkProps();
     this.init();
-    if (this.props.shouldRerender == undefined) {
-      return null;
-    } else if (prevProps.shouldRerender !== this.props.shouldRerender) {
-      this.container.appendChild(this.renderer.domElement);
+
+    if (prevProps.shouldRerender !== this.props.shouldRerender) {
+      this.container.replaceChildren(this.renderer.domElement);
     }
   }
 

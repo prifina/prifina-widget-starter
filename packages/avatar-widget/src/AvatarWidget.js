@@ -24,9 +24,6 @@ const AvatarWidget = (props) => {
     let newData = data;
     console.log("OURA SCORE PROCESSED NEW DATA", newData);
 
-    let data2 = ["score", "84", "66", "89", "72"];
-
-    // setOuraScore(data2[2]);
     // setOuraScore(score);
     setOuraScore(newData[1]);
   };
@@ -54,7 +51,7 @@ const AvatarWidget = (props) => {
     registerHooks(appID, [Oura]);
 
     const d = new Date();
-    const dd = d.setDate(d.getDate() - 3);
+    const dd = d.setDate(d.getDate() - 1);
     const dateStr = new Date(dd).toISOString().split("T")[0];
 
     const filter = {
