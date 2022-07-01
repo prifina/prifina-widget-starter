@@ -16,6 +16,7 @@ export default class ReactThreeVisor extends Component {
     near: PropTypes.number,
     onError: PropTypes.func,
     onLoading: PropTypes.func,
+    shouldRerender: PropTypes.func,
   };
 
   checkProps = () => {
@@ -149,9 +150,12 @@ export default class ReactThreeVisor extends Component {
     }
   };
 
-  componentDidMount() {
+  componentDidUpdate(prevProps) {
     this.checkProps();
     this.init();
+    if (prevProps.shouldRerender !== this.props.shouldRerender) {
+      this.container.appendChild(this.renderer.domElement);
+    }
   }
 
   render() {

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 
 import { usePrifina, Op } from "@prifina/hooks";
 
@@ -14,13 +14,10 @@ const AvatarWidget = (props) => {
 
   const { onUpdate, API, registerHooks } = usePrifina();
 
-  const [ouraScore, setOuraScore] = useState("");
+  const [ouraScore, setOuraScore] = useState();
 
   const processData = (data) => {
     console.log("OURA SCORE PROCESS DATA", data);
-
-    if (stage === "dev") {
-    }
 
     let newData = data;
     console.log("OURA SCORE PROCESSED NEW DATA", newData);
@@ -52,7 +49,6 @@ const AvatarWidget = (props) => {
 
     const d = new Date();
     const dd = d.setDate(d.getDate() - 3);
-
     const dateStr = new Date(dd).toISOString().split("T")[0];
 
     const filter = {
@@ -60,7 +56,6 @@ const AvatarWidget = (props) => {
         [Op.gte]: dateStr,
       },
     };
-
     const activityResult = await API[appID].Oura.querySleepSummariesAsync({
       filter: filter,
       fields: "score",
@@ -144,6 +139,7 @@ const AvatarWidget = (props) => {
         cameraPosition={cameraPosition}
         url={status}
         backgroundColor={color}
+        shouldRerender={{}}
       />
       <div
         style={{
