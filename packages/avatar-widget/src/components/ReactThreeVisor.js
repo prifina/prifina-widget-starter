@@ -134,7 +134,7 @@ export default class ReactThreeVisor extends Component {
     this.renderer = new THREE.WebGLRenderer({ antialias: true });
     this.renderer.setPixelRatio(window.devicePixelRatio);
     this.renderer.setSize(290, 290);
-    // this.container.replaceChildren(this.renderer.domElement);
+    this.container.replaceChildren(this.renderer.domElement);
     this.animate();
   };
 
