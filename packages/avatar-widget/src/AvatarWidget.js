@@ -18,10 +18,10 @@ const AvatarWidget = (props) => {
 
   const [ouraScore, setOuraScore] = useState();
 
-  const processData = (data) => {
+  const processData = async (data) => {
     console.log("OURA SCORE PROCESS DATA", data);
 
-    let newData = data;
+    let newData = await data;
     console.log("OURA SCORE PROCESSED NEW DATA", newData);
 
     setOuraScore(newData[1]);
