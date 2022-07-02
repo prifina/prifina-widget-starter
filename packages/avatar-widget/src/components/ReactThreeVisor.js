@@ -14,7 +14,7 @@ function ReactThreeVisor({
   // near,
   onError,
   onLoading,
-  shouldRerender,
+  ouraScore,
 }) {
   const container = useRef(null);
 
@@ -30,8 +30,6 @@ function ReactThreeVisor({
   const renderer = new THREE.WebGLRenderer({ antialias: true });
 
   let mixers = [];
-
-  // useEffect(() => {}, []);
 
   const animate = () => {
     requestAnimationFrame(animate);
@@ -126,9 +124,9 @@ function ReactThreeVisor({
     // if (prevProps.shouldRerender !== this.props.shouldRerender) {
     //   this.container.replaceChildren(this.renderer.domElement);
     // }
-  }, [shouldRerender]);
+  }, [ouraScore]);
 
-  console.log("should render state", shouldRerender);
+  console.log("should render state", ouraScore);
   console.log("react visor color", backgroundColor);
   return (
     <div
