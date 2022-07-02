@@ -24,7 +24,10 @@ const AvatarWidget = (props) => {
     let newData = data;
     console.log("OURA SCORE PROCESSED NEW DATA", newData);
 
-    setOuraScore(newData[1]);
+    // setOuraScore(newData[1]);
+
+    setOuraScore(45);
+    setOuraScore(92);
   };
 
   const dataUpdate = async (payload) => {
