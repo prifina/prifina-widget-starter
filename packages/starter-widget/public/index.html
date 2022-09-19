@@ -2,37 +2,38 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-  href="https://fonts.googleapis.com/css?family=Open+Sans"
-  rel="stylesheet"
-/>
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Change the white to any color ;) */
+      input:-webkit-autofill,
+      input:-webkit-autofill:hover,
+      input:-webkit-autofill:focus,
+      input:-webkit-autofill:active {
+        -webkit-box-shadow: 0 0 0 30px #f5f8f7 inset !important;
+      }
 
-<style>
-  /* Change the white to any color ;) */
-  input:-webkit-autofill,
-  input:-webkit-autofill:hover,
-  input:-webkit-autofill:focus,
-  input:-webkit-autofill:active {
-    -webkit-box-shadow: 0 0 0 30px #f5f8f7 inset !important;
-  }
+      /*Change text in autofill textbox*/
+      input:-webkit-autofill {
+        -webkit-text-fill-color: #1e1d1d !important;
+      }
+      p {
+        margin: 0;
+      }
+      body {
+        margin: 0 !important;
+        padding: 0 !important;
+      }
 
-  /*Change text in autofill textbox*/
-  input:-webkit-autofill {
-    -webkit-text-fill-color: #1e1d1d !important;
-  }
-  p {
-    margin: 0;
-  }
-  body {
-  margin:0 !important;
-   padding:0 !important;
-  }
-
-  * {
-    box-sizing: border-box;
-    }
-</style>
-
+      * {
+        box-sizing: border-box;
+        font-family: "Nunito", sans-serif;
+      }
+    </style>
   </head>
   <body>
     <div id="app"></div>

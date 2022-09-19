@@ -1,8 +1,8 @@
 {
-  "name": "starter-widget",
+  "name": "withings-daily-steps-remaining",
   "version": "1.0.0",
-  "description": "Starter widget example, followed up with documentation to help start building widgets for Prifina. ",
-  "author": "hamza <hamzahalilovic.12@gmail.com>",
+  "description": "A Prifina widget displaying how many steps a Withings user has to reach their daily goals",
+  "author": "Ömer Sakmar <omersakmar@gmail.com>",
   "homepage": "https://github.com/prifina/prifina-widget-starter#readme",
   "license": "MIT",
   "main": "dist/esm/index.js",
@@ -25,7 +25,6 @@
     "@babel/preset-react": "^7.12.13",
     "@babel/runtime": "^7.12.13",
     "@prifina/faker": "latest",
-    "@prifina/hooks": "latest",
     "@storybook/addon-actions": "^6.1.17",
     "@storybook/addon-docs": "^6.1.17",
     "@storybook/addon-knobs": "^6.1.17",
@@ -57,7 +56,8 @@
   "peerDependencies": {
     "react": "^17.0.1",
     "styled-components": "^5.2.1",
-    "styled-system": "^5.1.5"
+    "styled-system": "^5.1.5",
+    "@prifina/hooks": "^0.0.62"
   },
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack --mode production --config config/webpack.config.js",
